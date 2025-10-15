@@ -1,7 +1,9 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Home from './Home/Home';
+import Products from './Products/Products';
+import { Link } from 'react-router-dom';
 function App() {
   const openMenu = () => {
     document.querySelector(".sidebar")?.classList.add("open");
@@ -11,7 +13,16 @@ function App() {
   }
 
   return (
+    <Router>
     <div className="grid-container">
+        <link rel="stylesheet" href="style.css" />
+        <title>Wild Pony</title>
+        <body>
+            <div>
+                <header className="header">
+                </header>
+            </div>
+        </body>
     <div>
         <header className="header">
             <div className="brand">
@@ -19,8 +30,8 @@ function App() {
                 <a href="index.html">Wild Pony</a>
             </div>
             <div className="header-links">
-                <a href="cart.html">Cart</a>
-                <a href="signin.html">Sign In</a>
+                <Link to="/">Home</Link>
+                <Link to =" /catalog">Catalog</Link>
             </div>
         </header>
         <aside className="sidebar">
@@ -36,61 +47,19 @@ function App() {
                 </li>
             </ul>
         </aside>
-        <main>
-            <div className="content">
-                <ul className="products">
-                    <li>
-                        <div className="product">
-                            <img className="product-image" src="images/d1.jpg" alt="product" />
-                            <div className="product-name">
-                                <a href="product.html">Slim Shirt</a>
-                            </div>
-                            <div className="product-brand">Nike</div>
-                            <div className="product-price">$60</div>
-                            <div className="product-rating">4.5 Stars (10 Reviews)</div>
-                        </div>
-                    </li>
-                    <li>
-                        <div className="product">
-                            <img className="product-image" src="images/d1.jpg" alt="product" />
-                            <div className="product-name">
-                                <a href="product.html">Slim Shirt</a>
-                            </div>
-                            <div className="product-brand">Nike</div>
-                            <div className="product-price">$60</div>
-                            <div className="product-rating">4.5 Stars (10 Reviews)</div>
-                        </div>
-                    </li>
-                    <li>
-                        <div className="product">
-                            <img className="product-image" src="images/d1.jpg" alt="product" />
-                            <div className="product-name">
-                                <a href="product.html">Slim Shirt</a>
-                            </div>
-                            <div className="product-brand">Nike</div>
-                            <div className="product-price">$60</div>
-                            <div className="product-rating">4.5 Stars (10 Reviews)</div>
-                        </div>
-                    </li>
-                    <li>
-                        <div className="product">
-                            <img className="product-image" src="images/d1.jpg" alt="product" />
-                            <div className="product-name">
-                                <a href="product.html">Slim Shirt</a>
-                            </div>
-                            <div className="product-brand">Nike</div>
-                            <div className="product-price">$60</div>
-                            <div className="product-rating">4.5 Stars (10 Reviews)</div>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </main>
+        <main className="main">
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/catalog" element={<Products />} />
+            </Routes>
+            </main>
+            
         <footer>
             &copy; 2022 Wild Pony
         </footer>
     </div>
 </div>
+</Router>
   );
 }
 
