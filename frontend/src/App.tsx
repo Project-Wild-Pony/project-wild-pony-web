@@ -31,7 +31,7 @@ function App() {
             </div>
             <div className="header-links">
                 <Link to="/">Home</Link>
-                <Link to =" /catalog">Catalog</Link>
+                <Link to ="/catalog">Catalog</Link>
             </div>
         </header>
         <aside className="sidebar">
