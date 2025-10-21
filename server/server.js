@@ -9,7 +9,6 @@ app.get('/', (req, res) => {
   res.send('API Server is running...');
 });
 
-// 使用子路由
 app.use('/api/payments', paymentRoutes);
 app.use('/api/security', securityRoutes);
 
