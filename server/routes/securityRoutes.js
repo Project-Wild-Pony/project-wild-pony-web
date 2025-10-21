@@ -1,7 +1,6 @@
 import express from 'express';
 const router = express.Router();
 
-// 登录接口
 router.post('/login', (req, res) => {
   const { username, password } = req.body;
   if (username === 'admin' && password === '1234') {
@@ -17,3 +16,4 @@ router.post('/logout', (req, res) => {
 });
 
 export default router;
+
