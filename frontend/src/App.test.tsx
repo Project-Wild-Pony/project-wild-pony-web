@@ -1,11 +1,28 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders Wild Pony header link', () => {
-  render(<App />);
+
+describe('The main app', () => {
+
+  it('should render the Home link', () => {
+    render(<App />);
+    expect(screen.getByRole('link', { name: 'Home' })).toBeInTheDocument();
+  });
 
 
-  const linkElement = screen.getByRole('link', { name: /Wild Pony/i });
+  it('should render the Home header', () => {
+    render(<App />);
+    expect(screen.getByRole('heading', { level: 2 })).toBeInTheDocument();
+  });
 
-  expect(linkElement).toBeInTheDocument();
+  it('should render the Orders link', () => {
+    render(<App />);
+    expect(screen.getByText('Orders')).toBeInTheDocument();
+  });
+
+  it('should render the Payments link', () => {
+    render(<App />);
+    expect(screen.getByText('Payments')).toBeInTheDocument();
+  });
+
 });
